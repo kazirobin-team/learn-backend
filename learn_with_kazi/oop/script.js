@@ -1,29 +1,35 @@
 class Person {
-  #name
-constructor(name,age,gender){
-  this.#name =  name;
-  this.age = age;
-  this.gender = gender
-}
-//method
- call(name ){
- if(name = this.#name){
-  console.log("the name is correct",name,this.#name)
- }
-}
+  #name    //abstraction
+  constructor(name, age) {
+    this.#name = name;
+    this.age = age;
+  }
+
+  calling(names,a,b){
+      this.result = a+b //encapsulation
+    return "I am " + names + " "+ this.result
+  }
 }
 
-class Animal extends Person {
-  constructor(name,age,gender,color){
-    super(name,age,gender)
+const user1 = new Person("robin",22)
+
+class Animal extends Person{  //inheritance
+  constructor(name, age,color){
+    super(name, age)
     this.color = color
   }
-  call(){
-    console.log("color " + this.color + " name " + name)
+  sound(){
+     return console.log(this.color + " color "+ this.age + " meow")
+  }
+  calling(name){  //polymorphism.
+    
+     return "I am is " + name + " "
   }
 }
-const user1 = new Person("robin",20)
-const animal1 = new Animal("dog",10,"mele","red")
-animal1.call()
-user1.call("robin")
-console.log(user1.age)
+
+const animal1 = new Animal("cute",2,"white")
+// animal1.sound()
+console.log(animal1.calling("cute"))
+
+
+// console.log(user1.calling("robin",4,5))
